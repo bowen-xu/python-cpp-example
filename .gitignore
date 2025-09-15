@@ -3,6 +3,7 @@ build
 .xmake
 .vscode
 graphx/*.pyi
+graphx/__internal__/*.pyi
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

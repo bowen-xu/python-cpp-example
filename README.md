@@ -22,3 +22,8 @@ g = Graph()
 g = Graph.create()
 g.add_link(n1, n2)
 ```
+
+## Features
+- Modular architecture: The project is organized into submodules (e.g., node, link), each with its own build script and clear responsibilities.
+- Handles circular dependencies: The example supports circular dependencies between submodules.
+- Standardized bindings: All C++/Python interfaces are exposed using dedicated `pybind_xxx` functions (e.g., `pybind_graph`); classes are interfaced in a standard way.

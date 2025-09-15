@@ -1,3 +1,3 @@
 from . import link
 from . import node
-from .graphx import *
+from .__internal__.graphx import *

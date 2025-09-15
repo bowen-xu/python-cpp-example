@@ -7,9 +7,8 @@ includes(
 )
 project_dir = path.join(os.scriptdir(), ".")
 project_root = path.join(os.scriptdir(), "..")
-local module_dir = path.join(project_root, "graphx")
+local module_dir = path.join(project_root, "graphx/__internal__")
 local py_root = project_root
-mind_libs = path.join(module_dir, "libs/mind")
 
 add_requires("pybind11")
 
@@ -39,6 +38,6 @@ target("graphx")
         cprint("${blue}Generate stub for " .. target:name() .. "...")
         local py = os.getenv("CONDA_PREFIX") and (os.getenv("CONDA_PREFIX") .. "/bin/python") or "python"
         cprint("${yellow}Using python: " .. py)
-        os.exec(py .. " " .. py_root .. "/_generate_stub.py " .. " --root " .. module_dir .. " -p " .. target:name() .. " --single True" .. " --eval \"import link\nimport node\"")
+        os.exec(py .. " " .. py_root .. "/_generate_stub.py " .. " --root " .. module_dir .. " -p " .. target:name() .. " --single True" .. " --eval \"import sys; sys.path.insert(0, '" .. module_dir .. "/..'); import link; import node\"")
         -- the relevant modules are imported in the cpp code, so no need to `eval` to import them here
     end)
