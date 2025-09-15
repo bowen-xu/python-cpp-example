@@ -39,4 +39,7 @@ struct Link
     {
         return pLink(new Link());
     }
+
 };
+
+void pybind_link(py::module &m);

@@ -90,3 +90,5 @@ struct Graph
         target->in_links.push_back(link);
     }
 };
+
+void pybind_graph(py::module &m);

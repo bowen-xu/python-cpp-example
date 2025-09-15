@@ -35,3 +35,5 @@ struct Node : public std::enable_shared_from_this<Node>
 
     pLink connect_to(pNode target);
 };
+
+void pybind_node(py::module &m);
