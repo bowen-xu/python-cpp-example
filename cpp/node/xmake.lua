@@ -25,11 +25,3 @@ target("node")
     add_includedirs(node_includes)
 
     set_targetdir(module_dir)
-
-    after_build(function (target)
-        cprint("${blue}Generate stub for " .. target:name() .. "...")
-        local py = os.getenv("CONDA_PREFIX") and (os.getenv("CONDA_PREFIX") .. "/bin/python") or "python"
-        cprint("${yellow}Using python: " .. py)
-        os.exec(py .. " " .. py_root .. "/_generate_stub.py " .. " --root " .. module_dir .. " -p " .. target:name() .. " --single True" .. " --eval \"import link\"")
-    end)
-
