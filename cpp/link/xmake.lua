@@ -4,7 +4,7 @@ set_languages("cxx20")
 local module_dir = path.join(project_root, "graphx")
 local py_root = project_root
 
-add_requires("pybind11")
+add_requires("pybind11", {system = false})
 add_requires("fmt")
 
 link_includes = {
@@ -18,7 +18,7 @@ link_srcs = table.join(
 
 target("link")
     add_defines("PYMODULE")
-    add_rules("python.library", {soabi = true})
+    add_rules("python.module")
     add_packages("pybind11")
 
     add_files(link_srcs)

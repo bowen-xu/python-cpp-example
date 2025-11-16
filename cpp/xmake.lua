@@ -12,7 +12,7 @@ local link_module_dir = path.join(project_root, "graphx")
 local node_module_dir = path.join(project_root, "graphx")
 local py_root = project_root
 
-add_requires("pybind11")
+add_requires("pybind11", {system = false})
 
 graphx_includes = {
     path.join(os.scriptdir(), "."),
@@ -24,9 +24,8 @@ graphx_srcs = table.join(
 
 target("graphx")
     add_defines("PYMODULE")
-    add_rules("python.library", {soabi = true})
+    add_rules("python.module")
     add_packages("pybind11")
-
     add_deps("link", "node", {public = true, inherit = false}) -- add{inherit = false} to avoid automatic .so linking on Linux.
 
     add_files(graphx_srcs)
