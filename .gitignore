@@ -4,6 +4,7 @@ build
 .vscode
 graphx/*.pyi
 graphx/__internal__/*.pyi
+/compile_commands.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

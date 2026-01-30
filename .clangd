@@ -1,0 +1,10 @@
+# xmake project -k compile_commands
+SemanticTokens:
+  DisabledKinds: [Operator]
+
+Diagnostics:
+  UnusedIncludes: None
+
+CompileFlags:
+  Add:
+    - -DPYMODULE
